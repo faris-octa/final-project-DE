@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  mysql-ds9:
+    image: mysql:latest
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - DS9-network
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: faris
+      MYSQL_PASSWORD: faris
+      MYSQL_DATABASE: home-credit-application
+
+volumes:
+  mysql-data:
+
+networks:
+  DS9-network:
+    external: true
